@@ -1,46 +1,140 @@
-body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  line-height: 1.6;
-  color: #222;
+/* ---------- Colors ---------- */
+:root {
+  --navy: #13294b;
+  --blue: #4b9cd3;
+  --light: #f4f7fb;
+  --text: #222;
+  --muted: #666;
 }
 
+/* ---------- Base ---------- */
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  margin: 0;
+  background-color: var(--light);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+h1, h2, nav, footer {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: var(--navy);
+  font-size: 2.2rem;
+  margin-bottom: 5px;
+}
+
+h2 {
+  color: var(--navy);
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 5px;
+  margin-top: 35px;
+}
+
+a {
+  color: var(--navy);
+}
+
+/* ---------- Navigation bar ---------- */
 nav {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  background-color: var(--navy);
+  text-align: center;
+  padding: 15px 0;
 }
 
 nav a {
-  margin-right: 15px;
+  color: white;
   text-decoration: none;
-  color: #1a4f8b;
+  margin: 0 15px;
+  padding-bottom: 3px;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav a:hover,
+nav a.active {
+  border-bottom: 2px solid var(--blue);
 }
 
+/* ---------- Main content box ---------- */
+main {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px 40px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 0;
+}
+
+/* ---------- Quotes ---------- */
 .quote {
   font-style: italic;
-  border-left: 4px solid #ccc;
-  padding-left: 15px;
+  border-left: 4px solid var(--blue);
+  background-color: var(--light);
+  padding: 10px 20px;
   margin: 20px 0;
-  color: #555;
+  color: #444;
+}
+
+.quote span {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* ---------- About Me intro (photo + name side by side) ---------- */
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .headshot {
-  width: 200px;
+  width: 180px;
   height: auto;
   border-radius: 8px;
+  border: 3px solid var(--blue);
 }
 
+/* ---------- Contact list ---------- */
+.contact-list p {
+  font-size: 1.1rem;
+}
+
+/* ---------- Resume ---------- */
+iframe {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* ---------- Footer ---------- */
 footer {
-  margin-top: 40px;
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
+  text-align: center;
   font-size: 14px;
-  color: #777;
+  color: var(--muted);
+  padding: 20px 0 30px;
+}
+
+/* ---------- Phones / small screens ---------- */
+@media (max-width: 600px) {
+  main {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav a {
+    margin: 0 8px;
+  }
 }
