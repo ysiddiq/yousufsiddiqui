@@ -1,140 +1,429 @@
-/* ---------- Colors ---------- */
+/* =========================================
+   Colors & fonts (change these to restyle the whole site)
+   ========================================= */
 :root {
   --navy: #13294b;
   --blue: #4b9cd3;
-  --light: #f4f7fb;
-  --text: #222;
-  --muted: #666;
+  --sky: #e8f2fa;
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #2b2f36;
+  --muted: #6b7280;
+  --heading: #13294b;
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --border: #e5e7eb;
+  --heading-font: "Fraunces", Georgia, serif;
+  --body-font: "Inter", Arial, sans-serif;
 }
 
-/* ---------- Base ---------- */
+/* Dark mode: script.js adds class="dark" to <body> */
+body.dark {
+  --sky: #1e3350;
+  --bg: #0f1724;
+  --card: #18233a;
+  --text: #dbe2ec;
+  --muted: #94a3b8;
+  --heading: #e8f2fa;
+  --nav-bg: rgba(15, 23, 36, 0.92);
+  --border: #24324d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Georgia, "Times New Roman", serif;
   margin: 0;
-  background-color: var(--light);
+  font-family: var(--body-font);
+  background-color: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.75;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-h1, h2, nav, footer {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-h1 {
-  color: var(--navy);
-  font-size: 2.2rem;
-  margin-bottom: 5px;
-}
-
-h2 {
-  color: var(--navy);
-  border-bottom: 2px solid var(--blue);
-  padding-bottom: 5px;
-  margin-top: 35px;
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  color: var(--heading);
+  line-height: 1.2;
 }
 
 a {
+  color: var(--blue);
+}
+
+/* =========================================
+   Navigation bar (sticks to the top)
+   ========================================= */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+
+/* script.js adds .scrolled once you scroll down */
+nav.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+nav .logo {
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--heading);
+  text-decoration: none;
+}
+
+nav .links {
+  display: flex;
+  align-items: center;
+}
+
+nav .links a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+}
+
+nav .links a:hover {
+  background-color: var(--sky);
+}
+
+nav .links a.active {
+  background-color: var(--blue);
+  color: white;
+}
+
+#theme-toggle {
+  margin-left: 12px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* =========================================
+   Hero (big colored banner on the home page)
+   ========================================= */
+.hero {
+  background: linear-gradient(135deg, var(--navy), #2a5c8f 60%, var(--blue));
+  color: white;
+  padding: 70px 20px 90px;
+  text-align: center;
+}
+
+.hero .headshot {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+  color: white;
+  font-size: 3rem;
+  margin: 20px 0 5px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Typing text */
+.hero .typed {
+  font-family: var(--heading-font);
+  font-style: italic;
+  font-size: 1.4rem;
+  min-height: 2rem;
+  opacity: 1;
+  margin-bottom: 8px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.3rem;
+  background-color: white;
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  margin: 25px 6px 0;
+  padding: 10px 24px;
+  border-radius: 25px;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  background-color: white;
   color: var(--navy);
 }
 
-/* ---------- Navigation bar ---------- */
-nav {
-  background-color: var(--navy);
-  text-align: center;
-  padding: 15px 0;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  padding-bottom: 3px;
-}
-
-nav a:hover,
-nav a.active {
-  border-bottom: 2px solid var(--blue);
-}
-
-/* ---------- Main content box ---------- */
-main {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 30px 40px;
+.button.solid {
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: var(--navy);
 }
 
-.subtitle {
-  color: var(--muted);
-  font-family: Arial, Helvetica, sans-serif;
+.button.solid:hover {
+  background-color: var(--sky);
+}
+
+/* =========================================
+   Page header (colored strip on the other pages)
+   ========================================= */
+.page-header {
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  color: white;
+  text-align: center;
+  padding: 50px 20px 70px;
+}
+
+.page-header h1 {
+  color: white;
+  font-size: 2.6rem;
+  margin: 0;
+}
+
+.page-header p {
+  margin: 8px 0 0;
+  opacity: 0.9;
+}
+
+/* =========================================
+   Main content
+   ========================================= */
+main {
+  max-width: 850px;
+  margin: -45px auto 40px;  /* negative top margin pulls cards up over the banner */
+  padding: 0 20px;
+}
+
+.card {
+  background-color: var(--card);
+  border-radius: 14px;
+  padding: 30px 40px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 20px rgba(19, 41, 75, 0.08);
+}
+
+.card h2 {
   margin-top: 0;
 }
 
-/* ---------- Quotes ---------- */
+.card h3 {
+  margin-bottom: 5px;
+}
+
+/* Scroll reveal: script.js adds .reveal, then .visible when it scrolls into view */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   Highlights (three small boxes on home page)
+   ========================================= */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.highlight {
+  background-color: var(--card);
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  border-top: 4px solid var(--blue);
+  box-shadow: 0 4px 20px rgba(19, 41, 75, 0.08);
+}
+
+.highlight:hover {
+  transform: translateY(-5px);
+}
+
+.highlight .label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.highlight strong {
+  font-family: var(--heading-font);
+  font-size: 1.15rem;
+  color: var(--heading);
+}
+
+/* =========================================
+   Quotes
+   ========================================= */
 .quote {
+  position: relative;
+  font-family: var(--heading-font);
   font-style: italic;
-  border-left: 4px solid var(--blue);
-  background-color: var(--light);
-  padding: 10px 20px;
-  margin: 20px 0;
-  color: #444;
+  font-size: 1.15rem;
+  color: var(--heading);
+  background-color: var(--sky);
+  border-radius: 14px;
+  padding: 30px 40px 25px 70px;
+  margin: 0 0 25px;
+}
+
+.quote::before {
+  content: "\201C";  /* big curly quotation mark */
+  position: absolute;
+  left: 20px;
+  top: -5px;
+  font-size: 5rem;
+  color: var(--blue);
 }
 
 .quote span {
   display: block;
-  margin-top: 8px;
+  margin-top: 10px;
+  font-family: var(--body-font);
   font-style: normal;
+  font-size: 0.95rem;
   color: var(--muted);
 }
 
-/* ---------- About Me intro (photo + name side by side) ---------- */
-.intro {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+/* =========================================
+   Research tags
+   ========================================= */
+.tags {
+  margin-bottom: 15px;
 }
 
-.headshot {
-  width: 180px;
-  height: auto;
-  border-radius: 8px;
-  border: 3px solid var(--blue);
+.tag {
+  display: inline-block;
+  background-color: var(--sky);
+  color: var(--heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin: 0 6px 6px 0;
 }
 
-/* ---------- Contact list ---------- */
-.contact-list p {
-  font-size: 1.1rem;
+/* =========================================
+   Contact cards
+   ========================================= */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-/* ---------- Resume ---------- */
+.contact-item {
+  display: block;
+  background-color: var(--card);
+  border-radius: 14px;
+  padding: 30px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: 0 4px 20px rgba(19, 41, 75, 0.08);
+  word-break: break-word;
+}
+
+.contact-item:hover,
+.highlight:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(19, 41, 75, 0.15);
+}
+
+.contact-item .icon {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.contact-item h3 {
+  margin: 0 0 5px;
+}
+
+/* =========================================
+   Resume
+   ========================================= */
 iframe {
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: none;
+  border-radius: 8px;
 }
 
-/* ---------- Footer ---------- */
+/* =========================================
+   Footer
+   ========================================= */
 footer {
   text-align: center;
   font-size: 14px;
   color: var(--muted);
-  padding: 20px 0 30px;
+  padding: 20px 0 40px;
 }
 
-/* ---------- Phones / small screens ---------- */
-@media (max-width: 600px) {
-  main {
-    margin: 15px;
-    padding: 20px;
-  }
-
-  .intro {
+/* =========================================
+   Phones / small screens
+   ========================================= */
+@media (max-width: 700px) {
+  nav {
     flex-direction: column;
-    text-align: center;
+    padding: 12px;
   }
 
-  nav a {
-    margin: 0 8px;
+  nav .links a {
+    margin: 0 2px;
+    padding: 5px 10px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .highlights,
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -4,44 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yousuf Siddiqui | Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <nav>
-    <a href="index.html">About Me</a>
-    <a href="resume.html">Resume</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html" class="active">Contact</a>
+    <a href="index.html" class="logo">Yousuf Siddiqui</a>
+    <div class="links">
+      <a href="index.html">About</a>
+      <a href="resume.html">Resume</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html" class="active">Contact</a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
   </nav>
+
+  <header class="page-header">
+    <h1>Contact</h1>
+    <p>Feel free to reach out!</p>
+  </header>
 
   <main>
 
-    <h1>Contact</h1>
-    <p class="subtitle">Feel free to reach out!</p>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:yousufsiddiqui1707@gmail.com">
+        <span class="icon">&#9993;</span>
+        <h3>Email</h3>
+        yousufsiddiqui1707@gmail.com
+      </a>
 
-    <div class="contact-list">
-      <p>
-        <strong>Email:</strong>
-        <a href="mailto:yousufsiddiqui1707@gmail.com">yousufsiddiqui1707@gmail.com</a>
-      </p>
+      <a class="contact-item" href="tel:+19192144063">
+        <span class="icon">&#9742;</span>
+        <h3>Phone</h3>
+        (919) 214-4063
+      </a>
 
-      <p>
-        <strong>Phone:</strong>
-        <a href="tel:+19192144063">(919) 214-4063</a>
-      </p>
-
-      <p>
-        <strong>LinkedIn:</strong>
-        <a href="https://linkedin.com/in/ysiddiq/" target="_blank">linkedin.com/in/ysiddiq</a>
-      </p>
+      <a class="contact-item" href="https://linkedin.com/in/ysiddiq/" target="_blank">
+        <span class="icon">in</span>
+        <h3>LinkedIn</h3>
+        linkedin.com/in/ysiddiq
+      </a>
     </div>
 
   </main>
 
   <footer>
-    &copy; 2026 Yousuf Siddiqui
+    &copy; <span id="year">2026</span> Yousuf Siddiqui
   </footer>
+
+  <script src="script.js"></script>
 
 </body>
 </html>

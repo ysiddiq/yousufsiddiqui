@@ -4,29 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yousuf Siddiqui | Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <nav>
-    <a href="index.html">About Me</a>
-    <a href="resume.html" class="active">Resume</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html" class="logo">Yousuf Siddiqui</a>
+    <div class="links">
+      <a href="index.html">About</a>
+      <a href="resume.html" class="active">Resume</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html">Contact</a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
   </nav>
+
+  <header class="page-header">
+    <h1>Resume</h1>
+    <a href="resume.pdf" class="button solid" download>Download PDF</a>
+  </header>
 
   <main>
 
-    <h1>Resume</h1>
-    <p class="subtitle"><a href="resume.pdf" download>Download PDF</a></p>
-
-    <iframe src="resume.pdf" width="100%" height="800px" title="Resume PDF"></iframe>
+    <section class="card">
+      <iframe src="resume.pdf" width="100%" height="800px" title="Resume PDF"></iframe>
+    </section>
 
   </main>
 
   <footer>
-    &copy; 2026 Yousuf Siddiqui
+    &copy; <span id="year">2026</span> Yousuf Siddiqui
   </footer>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
